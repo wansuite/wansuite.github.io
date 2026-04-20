@@ -11,6 +11,98 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Structured data for AI assistants and search engines (schema.org Person + ScholarlyArticle) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://wansuite.github.io/#person",
+      "name": "Xuhu Wan",
+      "alternateName": ["WAN Xuhu", "X. Wan"],
+      "givenName": "Xuhu",
+      "familyName": "Wan",
+      "jobTitle": "Associate Professor",
+      "description": "Associate Professor at HKUST (Department of ISOM). Research in dynamic contracting, information design, and machine-learning approaches to asset pricing.",
+      "email": "mailto:xuhu.wan@gmail.com",
+      "url": "https://wansuite.github.io/",
+      "image": "https://wansuite.github.io/assets/img/effort-impatience-regions.png",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Hong Kong University of Science and Technology",
+        "department": "Department of Information Systems, Business Statistics and Operations Management",
+        "url": "https://isom.hkust.edu.hk/"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Southern California",
+        "url": "https://www.usc.edu/"
+      },
+      "knowsAbout": [
+        "Dynamic Contracting",
+        "Information Design",
+        "Bayesian Persuasion",
+        "Continuous-time Principal-Agent Models",
+        "Machine Learning Asset Pricing",
+        "Stochastic Discount Factors",
+        "AI-Driven Game Theory",
+        "Quantitative Finance"
+      ],
+      "sameAs": [
+        "https://orcid.org/0000-0003-3558-1151",
+        "https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xuhu-wan-imwan",
+        "https://researchportal.hkust.edu.hk/en/persons/xuhu-wan",
+        "https://www.researchgate.net/profile/Xuhu-Wan",
+        "https://www.coursera.org/instructor/xuhuwan"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Effort-Induced Impatience and Optimal Compensation Design",
+      "author": { "@id": "https://wansuite.github.io/#person" },
+      "datePublished": "2024-01-20",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6610679",
+      "abstract": "A continuous-time principal-agent model in which the agent's impatience rises endogenously with effort. The optimal payment threshold is non-monotonic in impatience, with closed-form implementations using debt, credit lines, and inside equity."
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "A general equilibrium model of a multi-firm moral-hazard economy with financial markets",
+      "author": [
+        { "@type": "Person", "name": "Jaeyoung Sung" },
+        { "@id": "https://wansuite.github.io/#person" }
+      ],
+      "datePublished": "2015",
+      "isPartOf": { "@type": "PublicationVolume", "name": "Mathematical Finance", "volumeNumber": "25", "issueNumber": "4" },
+      "pageStart": "827", "pageEnd": "868"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Dynamics of contract design with screening",
+      "author": [
+        { "@type": "Person", "name": "Jakša Cvitanić" },
+        { "@id": "https://wansuite.github.io/#person" },
+        { "@type": "Person", "name": "Huali Yang" }
+      ],
+      "datePublished": "2013",
+      "isPartOf": { "@type": "PublicationVolume", "name": "Management Science", "volumeNumber": "59", "issueNumber": "5" },
+      "pageStart": "1229", "pageEnd": "1244"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Optimal compensation and pay-performance sensitivity in a continuous-time principal-agent model",
+      "author": [
+        { "@type": "Person", "name": "Nengjiu Ju" },
+        { "@id": "https://wansuite.github.io/#person" }
+      ],
+      "datePublished": "2012",
+      "isPartOf": { "@type": "PublicationVolume", "name": "Management Science", "volumeNumber": "58", "issueNumber": "3" },
+      "pageStart": "641", "pageEnd": "657"
+    }
+  ]
+}
+</script>
 </head>
 <body class="paper-bg">
 
