@@ -50,9 +50,19 @@
         <div class="text-sm text-faint font-mono mb-4">
           January 2024 · 42 pages · Single-authored · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6610679" class="text-accent" target="_blank" rel="noopener">SSRN</a>
         </div>
-        <p class="text-muted leading-relaxed">
-          This paper develops a continuous-time principal-agent model in which the agent's impatience rises endogenously with effort. We derive explicit value functions and characterize optimal contracts. A central finding is that the payment threshold is non-monotonic in the agent's impatience level: when asset risk is low, the principal initially backloads payments to stretch incentives, but beyond a critical impatience level, the contract shifts toward frontloading, driven by two forces: stronger discounting of future payment and the rising cost of sustaining incentive under greater impatience. Implementing the contract with debt, credit lines, and inside equity yields closed-form valuations, showing that equity value shifts from concave to convex as asset risk increases. Temporary suspension efficiently realigns incentives without termination. Finally, we provide explicit conditions for renegotiation-proof contracts, revealing how effort-induced impatience reshapes incentive structures.
-        </p>
+        <div class="grid md:grid-cols-5 gap-6 items-start">
+          <p class="text-muted leading-relaxed md:col-span-3">
+            This paper develops a continuous-time principal-agent model in which the agent's impatience rises endogenously with effort. We derive explicit value functions and characterize optimal contracts. A central finding is that the payment threshold is non-monotonic in the agent's impatience level: when asset risk is low, the principal initially backloads payments to stretch incentives, but beyond a critical impatience level, the contract shifts toward frontloading, driven by two forces: stronger discounting of future payment and the rising cost of sustaining incentive under greater impatience. Implementing the contract with debt, credit lines, and inside equity yields closed-form valuations, showing that equity value shifts from concave to convex as asset risk increases. Temporary suspension efficiently realigns incentives without termination. Finally, we provide explicit conditions for renegotiation-proof contracts, revealing how effort-induced impatience reshapes incentive structures.
+          </p>
+          <figure class="md:col-span-2">
+            <img src="assets/img/effort-impatience-regions.png"
+                 alt="Diagram: regions of optimal contract behavior in the (R, L) plane, showing thresholds L = F_A(R), L = b(R, R Q_s^{-1}(A/rR)), and L = F_0(R) that separate Region II (Never shirking), Region III, Region IV, and the absorbing region D."
+                 class="w-full border border-subtle rounded shadow-sm">
+            <figcaption class="text-xs text-faint mt-2 italic leading-relaxed">
+              Optimal-contract regions in the (R, L) plane. Boundaries L = F_A(R) and L = F_0(R) separate the absorbing region from Region II (never shirking) and from the suspension region; the curve L = b(R, R Q<sub>s</sub><sup>-1</sup>(A/rR)) further partitions the interior.
+            </figcaption>
+          </figure>
+        </div>
       </article>
 
       <article>
