@@ -1,11 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xuhu Wan — HKUST Business School</title>
+<meta name="description" content="Xuhu Wan, Associate Professor at HKUST (Department of ISOM). Research in information design, dynamic contracting, and machine learning for asset pricing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-  <h1>Hello from wansuite.github.io!</h1>
-  <p>This is your GitHub Pages home page.</p>
+<body class="paper-bg">
+
+<!-- Nav -->
+<nav class="border-b border-subtle bg-paper/95 sticky top-0 backdrop-blur z-50">
+  <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/" class="serif text-lg font-semibold text-accent">Xuhu Wan</a>
+    <div class="flex items-center gap-6 text-sm">
+      <a href="#research" class="text-muted hover:text-accent transition">Research</a>
+      <a href="#teaching" class="text-muted hover:text-accent transition">Teaching</a>
+      <a href="#applied" class="text-muted hover:text-accent transition">ML in Practice</a>
+      <a href="about.html" class="text-muted hover:text-accent transition">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero — academic identity -->
+<header class="border-b border-subtle">
+  <div class="max-w-4xl mx-auto px-6 py-20">
+    <div class="text-xs font-mono uppercase tracking-widest text-faint mb-5">Department of ISOM · HKUST Business School</div>
+    <h1 class="serif text-5xl md:text-6xl mb-6 leading-tight">Xuhu Wan</h1>
+    <p class="text-lg md:text-xl text-muted max-w-3xl mb-4 leading-relaxed">
+      Associate Professor working at the intersection of <em class="text-accent not-italic">economic theory</em>, <em class="text-accent not-italic">quantitative finance</em>, and <em class="text-accent not-italic">data science</em>.
+    </p>
+    <p class="text-base text-muted max-w-3xl leading-relaxed">
+      My research focuses on information design, dynamic contracting, and machine-learning approaches to asset pricing. Current interests include AI-driven game theory, contracting under new frictions, and how information disclosure shapes financial markets.
+    </p>
+  </div>
+</header>
+
+<!-- RESEARCH -->
+<section id="research" class="border-b border-subtle">
+  <div class="max-w-4xl mx-auto px-6 py-20 space-y-16">
+
+    <div>
+      <div class="text-xs font-mono uppercase tracking-widest text-faint mb-3">§ Research</div>
+      <h2 class="serif text-4xl mb-2">Research</h2>
+    </div>
+
+    <!-- Working papers -->
+    <div>
+      <h3 class="serif text-2xl mb-6 pb-2 border-b border-subtle">Working Papers</h3>
+      <div class="space-y-8">
+        <article>
+          <h4 class="serif text-xl mb-1.5">Effort-Induced Impatience and Optimal Compensation Design</h4>
+          <div class="text-sm text-faint font-mono mb-2">Working Paper</div>
+        </article>
+
+        <article>
+          <h4 class="serif text-xl mb-1.5">Dynamic Monitoring and Information Design</h4>
+          <div class="text-sm text-faint font-mono mb-2">Working Paper</div>
+        </article>
+
+        <article>
+          <h4 class="serif text-xl mb-1.5">Sticky Compensation in Continuous Time</h4>
+          <div class="text-sm text-faint font-mono mb-2">Working Paper</div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <div>
+      <h3 class="serif text-2xl mb-6 pb-2 border-b border-subtle">Publications</h3>
+      <ol class="space-y-5 list-none">
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2015</span>
+          <div class="leading-relaxed">
+            Sung, J., and <strong>Wan, X.</strong> A general equilibrium model of a multi-firm moral-hazard economy with financial markets. <em>Mathematical Finance</em>, 25(4), 827–868.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2013</span>
+          <div class="leading-relaxed">
+            Cvitanić, J., and <strong>Wan, X.</strong> Dynamics of contract design with screening. <em>Management Science</em>, 59(5), 1229–1244.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2012</span>
+          <div class="leading-relaxed">
+            Ju, N., and <strong>Wan, X.</strong> Optimal compensation and pay-performance sensitivity in a continuous-time principal-agent model. <em>Management Science</em>, 58(3), 641–657.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2010</span>
+          <div class="leading-relaxed">
+            Goukasian, L., and <strong>Wan, X.</strong> Optimal incentive contracts under relative income concerns. <em>Mathematics and Financial Economics</em>, 4(1), 57–86.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2009</span>
+          <div class="leading-relaxed">
+            Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Optimal compensation with hidden action and lump-sum payment in a continuous-time model. <em>Applied Mathematics and Optimization</em>, 59(1), 99–146.
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2008</span>
+          <div class="leading-relaxed">
+            Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Principal-agent problems with exit options. <em>B.E. Journal of Theoretical Economics</em>, 8(1).
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="font-mono text-sm text-faint shrink-0 w-12">2006</span>
+          <div class="leading-relaxed">
+            Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Optimal contracts in continuous-time models. <em>Journal of Applied Mathematics and Stochastic Analysis</em>.
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Themes -->
+    <div>
+      <h3 class="serif text-2xl mb-6 pb-2 border-b border-subtle">Research Themes</h3>
+      <div class="grid md:grid-cols-2 gap-x-10 gap-y-6">
+        <div>
+          <h4 class="serif text-lg mb-1 text-accent">Information Economics</h4>
+          <p class="text-muted text-sm leading-relaxed">Persuasion, Bayesian games, signaling, communication, dynamic disclosure.</p>
+        </div>
+        <div>
+          <h4 class="serif text-lg mb-1 text-accent">Dynamic Contracting</h4>
+          <p class="text-muted text-sm leading-relaxed">Continuous-time principal–agent models, contracting under new frictions, AI principals.</p>
+        </div>
+        <div>
+          <h4 class="serif text-lg mb-1 text-accent">Asset Pricing &amp; ML</h4>
+          <p class="text-muted text-sm leading-relaxed">SDFs, factor models, deep learning for cross-sectional return prediction, regime-aware models.</p>
+        </div>
+        <div>
+          <h4 class="serif text-lg mb-1 text-accent">Information &amp; Markets</h4>
+          <p class="text-muted text-sm leading-relaxed">How disclosure rules and news flow propagate into asset prices, volatility, and liquidity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-sm">
+      <a href="research.html" class="link-underline">Full research page →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching" class="border-b border-subtle bg-muted">
+  <div class="max-w-4xl mx-auto px-6 py-20">
+    <div class="text-xs font-mono uppercase tracking-widest text-faint mb-3">§ Teaching</div>
+    <h2 class="serif text-4xl mb-8">Teaching at HKUST</h2>
+
+    <ul class="space-y-5 mb-8">
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4 pb-4 border-b border-subtle">
+        <span class="font-mono text-xs uppercase tracking-widest text-faint w-32 shrink-0">UG · Year 2</span>
+        <span class="serif text-lg">Introduction to Business Analytics</span>
+      </li>
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4 pb-4 border-b border-subtle">
+        <span class="font-mono text-xs uppercase tracking-widest text-faint w-32 shrink-0">Advanced UG</span>
+        <span class="serif text-lg">Risk Management <span class="text-faint font-mono text-sm">(RMBI 3110)</span></span>
+      </li>
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4 pb-4 border-b border-subtle">
+        <span class="font-mono text-xs uppercase tracking-widest text-faint w-32 shrink-0">MS</span>
+        <span class="serif text-lg">Learning Statistics with Python</span>
+      </li>
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4 pb-4 border-b border-subtle">
+        <span class="font-mono text-xs uppercase tracking-widest text-faint w-32 shrink-0">Graduate</span>
+        <span class="serif text-lg">Network Analytics</span>
+      </li>
+      <li class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4 pb-4 border-b border-subtle">
+        <span class="font-mono text-xs uppercase tracking-widest text-faint w-32 shrink-0">Graduate</span>
+        <span class="serif text-lg">Social Media Analytics</span>
+      </li>
+    </ul>
+
+    <div class="text-base">
+      <a href="https://www.coursera.org/learn/python-statistics-financial-analysis" target="_blank" rel="noopener" class="link-underline">Coursera · Python and Statistics for Financial Analysis</a>
+      <span class="text-faint ml-2 text-sm">(open enrollment)</span>
+    </div>
+    <div class="mt-6 text-sm">
+      <a href="teaching.html" class="link-underline">Course details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ML in Practice -->
+<section id="applied" class="border-b border-subtle">
+  <div class="max-w-4xl mx-auto px-6 py-20">
+    <div class="text-xs font-mono uppercase tracking-widest text-faint mb-3">§ Empirical Demonstration</div>
+    <h2 class="serif text-4xl mb-4">Machine Learning in Practice</h2>
+    <p class="text-muted max-w-3xl leading-relaxed mb-3">
+      Two systematic strategies running on live market data, built to demonstrate how the machine-learning and asset-pricing methods studied in my research perform out-of-sample.
+    </p>
+    <p class="text-muted max-w-3xl leading-relaxed mb-12 text-sm italic">
+      Both strategies were backtested over 20 years of historical data and have been live-traded since March 2024. The charts below show <strong>actual live-trading NAV</strong>, not backtest. Results are presented as empirical illustrations of academic methods, not as an investment offering.
+    </p>
+
+    <!-- SFG -->
+    <div class="mb-16">
+      <div class="flex items-baseline justify-between mb-2 pb-2 border-b border-subtle">
+        <div class="flex items-baseline gap-3">
+          <span class="font-mono text-xs uppercase tracking-widest text-faint">SFG</span>
+          <h3 class="serif text-2xl text-accent">Defensive Multi-Asset</h3>
+        </div>
+        <span class="font-mono text-xs text-faint">Live · 2024-03 → 2026-03</span>
+      </div>
+      <p class="text-muted text-sm leading-relaxed mb-5 max-w-3xl">
+        Risk-parity core across equities, bonds, gold, and FX with regime-aware exposure scaling. Illustrates dynamic risk allocation under macro regime shifts.
+      </p>
+      <div class="h-56 mb-5"><canvas id="chart-sfg"></canvas></div>
+      <dl class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-sm">
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Total Return</dt><dd class="serif text-xl text-accent">+73.5%</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">CAGR</dt><dd class="serif text-xl text-accent">31.7%</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Sharpe</dt><dd class="serif text-xl text-accent">1.73</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Max DD</dt><dd class="serif text-xl text-accent-warm">−11.0%</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Vol (ann.)</dt><dd class="serif text-xl text-muted">16.8%</dd></div>
+      </dl>
+    </div>
+
+    <!-- AGR -->
+    <div>
+      <div class="flex items-baseline justify-between mb-2 pb-2 border-b border-subtle">
+        <div class="flex items-baseline gap-3">
+          <span class="font-mono text-xs uppercase tracking-widest text-faint">AGR</span>
+          <h3 class="serif text-2xl text-accent-warm">ML Equity Long-Only</h3>
+        </div>
+        <span class="font-mono text-xs text-faint">Live · 2024-03 → 2026-03</span>
+      </div>
+      <p class="text-muted text-sm leading-relaxed mb-5 max-w-3xl">
+        Long-only US equity portfolio driven by ML alpha signals, news-flow sentiment, and cross-sectional factor models. Illustrates ML-based asset-pricing methods applied to security selection.
+      </p>
+      <div class="h-56 mb-5"><canvas id="chart-agr"></canvas></div>
+      <dl class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-sm">
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Total Return</dt><dd class="serif text-xl text-accent-warm">+99.4%</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">CAGR</dt><dd class="serif text-xl text-accent-warm">41.1%</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Sharpe</dt><dd class="serif text-xl text-accent-warm">1.54</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Max DD</dt><dd class="serif text-xl text-accent-warm">−16.5%</dd></div>
+        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Vol (ann.)</dt><dd class="serif text-xl text-muted">24.3%</dd></div>
+      </dl>
+    </div>
+
+    <!-- Methodology footnote -->
+    <div class="mt-12 pt-6 border-t border-subtle text-xs text-faint leading-relaxed font-mono">
+      <strong class="text-muted">Methodology.</strong> CAGR and volatility annualized using 252 trading days. Sharpe assumes zero risk-free rate. Max drawdown computed on daily NAV. Inception capital = 100,000 (notional). Past performance is not indicative of future results.
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-muted">
+  <div class="max-w-4xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+      <div>
+        <div class="serif text-xl mb-1">Xuhu Wan</div>
+        <div class="text-sm text-muted leading-relaxed">
+          Department of Information Systems, Business Statistics and Operations Management<br>
+          HKUST Business School · Clear Water Bay, Hong Kong
+        </div>
+      </div>
+      <div class="text-sm space-y-1 font-mono">
+        <div><a href="mailto:xuhu.wan@gmail.com" class="link-underline">xuhu.wan@gmail.com</a></div>
+        <div><a href="about.html" class="link-underline">About / CV</a></div>
+      </div>
+    </div>
+    <div class="border-t border-subtle mt-10 pt-6 text-xs text-faint italic">
+      © 2026 Xuhu Wan. Personal academic site. Trading strategies referenced are empirical demonstrations of academic research, not investment offerings.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/charts.js"></script>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
 </body>
 </html>

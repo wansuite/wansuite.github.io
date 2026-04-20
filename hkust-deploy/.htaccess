@@ -1,0 +1,41 @@
+# HKUST Personal Homepage — root .htaccess
+# Place this file in your public_html directory.
+
+# ---- 1. Force HTTPS (HKUST supports it) ------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ---- 2. CN visitor blocker via PHP ----------------------------------------
+# Auto-prepends the PHP blocker to every PHP page request. If your pages are
+# pure .html, change extension to .php OR use AddType to handle .html as PHP
+# (see block 2b below).
+php_value auto_prepend_file "/home/imwan/public_html/cn-block/block_cn.php"
+
+# ---- 2b. Treat .html as PHP so the blocker runs (uncomment if needed) -----
+# AddType application/x-httpd-php .html .htm
+
+# ---- 3. Pretty defaults ---------------------------------------------------
+DirectoryIndex index.html index.php
+ErrorDocument 403 /cn-block/blocked.html
+ErrorDocument 404 /404.html
+
+# ---- 4. Compression / caching --------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json text/xml
+</IfModule>
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+</IfModule>
+
+# ---- 5. Security ----------------------------------------------------------
+<FilesMatch "^(\.htaccess|\.htpasswd|.*\.cidr|build_.*\.py)$">
+    Require all denied
+</FilesMatch>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"

@@ -1,0 +1,76 @@
+:root {
+  --bg: #fbfaf6;
+  --bg-muted: #f3f1ea;
+  --text: #1c1917;
+  --text-muted: #57534e;
+  --text-faint: #a8a29e;
+  --border: #e7e5e0;
+  --accent: #1e3a5f;       /* deep navy */
+  --accent-soft: #3b5b86;
+  --accent-warm: #7a2e2e;  /* burgundy */
+  --accent-olive: #4a5d3a; /* sage/olive */
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Crimson Pro', 'EB Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-weight: 700; letter-spacing: -0.02em; }
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-accent { color: var(--accent); }
+.text-accent-warm { color: var(--accent-warm); }
+.text-accent-olive { color: var(--accent-olive); }
+.text-muted { color: var(--text-muted); }
+.text-faint { color: var(--text-faint); }
+
+.bg-paper { background: var(--bg); }
+.bg-muted { background: var(--bg-muted); }
+.border-subtle { border-color: var(--border); }
+
+a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
+a:hover { color: var(--accent-warm); }
+
+.link-underline { text-decoration: underline; text-decoration-color: rgba(30,58,95,0.3); text-underline-offset: 3px; }
+.link-underline:hover { text-decoration-color: var(--accent-warm); }
+
+/* Subtle paper texture */
+.paper-bg {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(30,58,95,0.025), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(122,46,46,0.02), transparent 40%);
+}
+
+::selection {
+  background: rgba(30,58,95,0.15);
+  color: var(--text);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #d6d3cd; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* Article spacing */
+article + article { margin-top: 1.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

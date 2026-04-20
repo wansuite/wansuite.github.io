@@ -1,0 +1,8 @@
+# Protect the cn-block folder itself: deny direct browsing of CIDR/config files,
+# but allow blocked.html (the friendly block page) to be served.
+<FilesMatch "\.(cidr|py|md)$">
+    Require all denied
+</FilesMatch>
+
+# Don't auto-prepend block_cn.php here — it's for the parent directory.
+php_value auto_prepend_file none
