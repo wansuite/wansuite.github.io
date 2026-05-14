@@ -57,6 +57,6 @@ hkust-deploy/
 
 If you copy the full current site (including the "ML in Practice" / SFG / AGR section), be aware HKUST IT and faculty conflict-of-interest rules apply more strictly to content on the `*.people.ust.hk` domain.
 
-**Recommended:** for the HKUST-hosted version, **remove the "ML in Practice" section entirely** and keep that content only on `wansuite.github.io`. The academic pages (Research, Teaching, About) carry no policy risk.
+**Recommended:** for the HKUST-hosted version, **remove the "ML in Practice" section entirely** and keep that content only on `xuhuwan.pages.dev`. The academic pages (Research, Teaching, About) carry no policy risk.
 
 Ask Claude to produce a stripped academic-only build in `hkust-deploy/site/` if you want it pre-trimmed.

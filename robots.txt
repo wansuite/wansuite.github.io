@@ -21,4 +21,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://wansuite.github.io/sitemap.xml
+Sitemap: https://xuhuwan.pages.dev/sitemap.xml

@@ -1,4 +1,4 @@
-# wansuite.github.io
+# xuhuwan.pages.dev
 
 Personal site of Xuhu Wan — Associate Professor at HKUST (Department of ISOM), principal of SFG and AGR systematic trading strategies.
 
@@ -14,4 +14,4 @@ Plain HTML + Tailwind CSS (Play CDN) + Chart.js. No build step. Just push and Gi
 - Performance metrics (YTD / Sharpe / Max DD) live as text in `index.html` — edit there.
 
 ## Deploy
-Pushed to `main`; GitHub Pages serves from root at https://wansuite.github.io
+Pushed to `main`; GitHub Pages serves from root at https://xuhuwan.pages.dev
