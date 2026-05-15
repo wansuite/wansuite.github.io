@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="assets/css/style.css">
 
 <!-- Structured data for AI assistants and search engines (schema.org Person + ScholarlyArticle) -->
@@ -120,7 +119,6 @@
     <div class="flex items-center gap-6 text-sm">
       <a href="#research" class="text-muted hover:text-accent transition">Research</a>
       <a href="#teaching" class="text-muted hover:text-accent transition">Teaching</a>
-      <a href="#applied" class="text-muted hover:text-accent transition">ML in Practice</a>
       <a href="about.html" class="text-muted hover:text-accent transition">About</a>
     </div>
   </div>
@@ -276,69 +274,6 @@
   </div>
 </section>
 
-<!-- ML in Practice -->
-<section id="applied" class="border-b border-subtle">
-  <div class="max-w-4xl mx-auto px-6 py-20">
-    <div class="text-xs font-mono uppercase tracking-widest text-faint mb-3">§ Empirical Demonstration</div>
-    <h2 class="serif text-4xl mb-4">Machine Learning in Practice</h2>
-    <p class="text-muted max-w-3xl leading-relaxed mb-3">
-      Two systematic strategies running on live market data, built to demonstrate how the machine-learning and asset-pricing methods studied in my research perform out-of-sample.
-    </p>
-    <p class="text-muted max-w-3xl leading-relaxed mb-12 text-sm italic">
-      Both strategies were backtested over 20 years of historical data and have been live-traded since March 2024. The charts below show <strong>actual live-trading NAV</strong>, not backtest. Results are presented as empirical illustrations of academic methods, not as an investment offering.
-    </p>
-
-    <!-- SFG -->
-    <div class="mb-16">
-      <div class="flex items-baseline justify-between mb-2 pb-2 border-b border-subtle">
-        <div class="flex items-baseline gap-3">
-          <span class="font-mono text-xs uppercase tracking-widest text-faint">SFG</span>
-          <h3 class="serif text-2xl text-accent">Defensive Multi-Asset</h3>
-        </div>
-        <span class="font-mono text-xs text-faint">Live · 2024-03 → 2026-03</span>
-      </div>
-      <p class="text-muted text-sm leading-relaxed mb-5 max-w-3xl">
-        Risk-parity core across equities, bonds, gold, and FX with regime-aware exposure scaling. Illustrates dynamic risk allocation under macro regime shifts.
-      </p>
-      <div class="h-56 mb-5"><canvas id="chart-sfg"></canvas></div>
-      <dl class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-sm">
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Total Return</dt><dd class="serif text-xl text-accent">+73.5%</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">CAGR</dt><dd class="serif text-xl text-accent">31.7%</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Sharpe</dt><dd class="serif text-xl text-accent">1.73</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Max DD</dt><dd class="serif text-xl text-accent-warm">−11.0%</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Vol (ann.)</dt><dd class="serif text-xl text-muted">16.8%</dd></div>
-      </dl>
-    </div>
-
-    <!-- AGR -->
-    <div>
-      <div class="flex items-baseline justify-between mb-2 pb-2 border-b border-subtle">
-        <div class="flex items-baseline gap-3">
-          <span class="font-mono text-xs uppercase tracking-widest text-faint">AGR</span>
-          <h3 class="serif text-2xl text-accent-warm">ML Equity Long-Only</h3>
-        </div>
-        <span class="font-mono text-xs text-faint">Live · 2024-03 → 2026-03</span>
-      </div>
-      <p class="text-muted text-sm leading-relaxed mb-5 max-w-3xl">
-        Long-only US equity portfolio driven by ML alpha signals, news-flow sentiment, and cross-sectional factor models. Illustrates ML-based asset-pricing methods applied to security selection.
-      </p>
-      <div class="h-56 mb-5"><canvas id="chart-agr"></canvas></div>
-      <dl class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-sm">
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Total Return</dt><dd class="serif text-xl text-accent-warm">+99.4%</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">CAGR</dt><dd class="serif text-xl text-accent-warm">41.1%</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Sharpe</dt><dd class="serif text-xl text-accent-warm">1.54</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Max DD</dt><dd class="serif text-xl text-accent-warm">−16.5%</dd></div>
-        <div><dt class="text-faint text-xs uppercase tracking-wider font-mono mb-0.5">Vol (ann.)</dt><dd class="serif text-xl text-muted">24.3%</dd></div>
-      </dl>
-    </div>
-
-    <!-- Methodology footnote -->
-    <div class="mt-12 pt-6 border-t border-subtle text-xs text-faint leading-relaxed font-mono">
-      <strong class="text-muted">Methodology.</strong> CAGR and volatility annualized using 252 trading days. Sharpe assumes zero risk-free rate. Max drawdown computed on daily NAV. Inception capital = 100,000 (notional). Past performance is not indicative of future results.
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="bg-muted">
   <div class="max-w-4xl mx-auto px-6 py-12">
@@ -356,12 +291,10 @@
       </div>
     </div>
     <div class="border-t border-subtle mt-10 pt-6 text-xs text-faint italic">
-      © 2026 Xuhu Wan. Personal academic site. Trading strategies referenced are empirical demonstrations of academic research, not investment offerings.
+      © 2026 Xuhu Wan. Personal academic site.
     </div>
   </div>
 </footer>
-
-<script src="assets/js/charts.js"></script>
 
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d43dcce12fac462db641607c7415514f"}'></script>
