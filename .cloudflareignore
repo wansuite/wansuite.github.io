@@ -1,0 +1,9 @@
+.git
+.gitignore
+.cloudflareignore
+.vscode
+.DS_Store
+README.md
+hkust-deploy
+node_modules
+*.swp
