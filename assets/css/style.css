@@ -71,31 +71,83 @@ a:hover { color: var(--accent-warm); }
 /* Article spacing */
 article + article { margin-top: 1.5rem; }
 
-/* Mini book-cover icon — used in teaching textbook listings */
+/* Realistic book-cover thumbnail — matches the "Modern Business Analytics"
+   navy + gold serif design used across the three Spring-2026 textbooks. */
 .bk {
   flex-shrink: 0;
-  width: 64px;
-  height: 88px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-  color: #fdfcf7;
-  font-family: 'Crimson Pro', Georgia, serif;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 1.15;
-  padding: 8px 7px;
-  border-radius: 1px 3px 3px 1px;
-  box-shadow:
-    1px 2px 4px rgba(0,0,0,0.18),
-    inset 2px 0 0 rgba(255,255,255,0.18),
-    inset -1px 0 0 rgba(0,0,0,0.10);
+  width: 132px;
+  height: 184px;
+  padding: 10px 8px 8px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #fdfcf7;
   text-decoration: none;
-  transition: transform 0.15s ease;
+  border-radius: 1px 4px 4px 1px;
+  box-shadow:
+    2px 3px 8px rgba(0,0,0,0.22),
+    inset 3px 0 0 rgba(255,255,255,0.10),
+    inset -1px 0 0 rgba(0,0,0,0.18);
+  background: #0d1f3a; /* default deep navy — overridden per book */
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
-.bk:hover { transform: translateY(-1px) rotate(-0.5deg); color: #fdfcf7; }
-.bk-warm  { background: linear-gradient(135deg, var(--accent-warm), #a35454); }
-.bk-olive { background: linear-gradient(135deg, var(--accent-olive), #6b805a); }
+.bk:hover {
+  transform: translateY(-3px) rotate(-0.6deg);
+  color: #fdfcf7;
+  box-shadow:
+    3px 6px 14px rgba(0,0,0,0.30),
+    inset 3px 0 0 rgba(255,255,255,0.12),
+    inset -1px 0 0 rgba(0,0,0,0.20);
+}
+.bk-rule {
+  width: 30px;
+  height: 1.5px;
+  background: #d4a017;
+  margin: 0 auto 6px;
+}
+.bk-bot .bk-rule { margin: 6px auto 0; }
+.bk-cat {
+  font-family: 'Inter', sans-serif;
+  font-size: 6px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #d4a017;
+  text-transform: uppercase;
+}
+.bk-title {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  padding: 0 2px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0;
+}
+.bk-author {
+  font-family: 'Inter', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+.bk-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 5.5px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  color: rgba(212,160,23,0.85);
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+/* Color variants — same template, different cover stocks */
+.bk-navy     { background: #0d1f3a; }
+.bk-burgundy { background: #3a1414; }
+.bk-forest   { background: #14352a; }
 
 .textbook-card {
   display: flex;
