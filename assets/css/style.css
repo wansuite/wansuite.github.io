@@ -71,6 +71,57 @@ a:hover { color: var(--accent-warm); }
 /* Article spacing */
 article + article { margin-top: 1.5rem; }
 
+/* Mini book-cover icon — used in teaching textbook listings */
+.bk {
+  flex-shrink: 0;
+  width: 64px;
+  height: 88px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #fdfcf7;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.15;
+  padding: 8px 7px;
+  border-radius: 1px 3px 3px 1px;
+  box-shadow:
+    1px 2px 4px rgba(0,0,0,0.18),
+    inset 2px 0 0 rgba(255,255,255,0.18),
+    inset -1px 0 0 rgba(0,0,0,0.10);
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.bk:hover { transform: translateY(-1px) rotate(-0.5deg); color: #fdfcf7; }
+.bk-warm  { background: linear-gradient(135deg, var(--accent-warm), #a35454); }
+.bk-olive { background: linear-gradient(135deg, var(--accent-olive), #6b805a); }
+
+.textbook-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-muted);
+  border-radius: 4px;
+  margin-top: 0.75rem;
+}
+.textbook-card ol { margin: 0; padding: 0; list-style: none; }
+.textbook-card ol li {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  padding: 1px 0;
+}
+.textbook-card ol li::before {
+  content: counter(toc) ".";
+  counter-increment: toc;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-faint);
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+}
+.textbook-card ol { counter-reset: toc; }
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
