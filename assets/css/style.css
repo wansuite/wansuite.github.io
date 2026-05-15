@@ -152,6 +152,7 @@ article + article { margin-top: 1.5rem; }
 .bk-black .bk-rule { background: #c41e1e; }
 .bk-black .bk-cat  { color: #c41e1e; }
 .bk-black .bk-sub  { color: rgba(196,30,30,0.88); }
+.bk-onyx     { background: #0a0a0b; }   /* black with default gold accents */
 
 .textbook-card {
   display: flex;
