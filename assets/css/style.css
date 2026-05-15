@@ -148,6 +148,10 @@ article + article { margin-top: 1.5rem; }
 .bk-navy     { background: #0d1f3a; }
 .bk-burgundy { background: #3a1414; }
 .bk-forest   { background: #14352a; }
+.bk-black    { background: #0a0a0b; }
+.bk-black .bk-rule { background: #c41e1e; }
+.bk-black .bk-cat  { color: #c41e1e; }
+.bk-black .bk-sub  { color: rgba(196,30,30,0.88); }
 
 .textbook-card {
   display: flex;
