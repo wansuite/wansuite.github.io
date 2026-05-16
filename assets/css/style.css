@@ -71,6 +71,25 @@ a:hover { color: var(--accent-warm); }
 /* Article spacing */
 article + article { margin-top: 1.5rem; }
 
+/* Decorative section divider — academic-press ornament */
+.ornament {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  letter-spacing: 0.6em;
+  user-select: none;
+  opacity: 0.7;
+}
+
+/* Figure styling — soft frame for paper diagrams */
+figure.diagram img {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 8px;
+  background: var(--bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
 /* Nav tab styling — soft animated underline */
 nav .tab {
   padding-bottom: 0.3rem;
