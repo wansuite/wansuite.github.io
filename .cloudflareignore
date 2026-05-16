@@ -9,3 +9,8 @@ node_modules
 *.swp
 githu/
 .claude/
+src/
+package.json
+package-lock.json
+tailwind.config.cjs
+deploy.sh
