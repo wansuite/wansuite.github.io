@@ -161,6 +161,10 @@ article + article { margin-top: 1.5rem; }
 .bk-plum .bk-rule { background: #d97fe6; }
 .bk-plum .bk-cat  { color: #d97fe6; }
 .bk-plum .bk-sub  { color: rgba(217,127,230,0.85); }
+.bk-emerald  { background: #0a1f15; }   /* deep emerald with teal accents */
+.bk-emerald .bk-rule { background: #4ecca3; }
+.bk-emerald .bk-cat  { color: #4ecca3; }
+.bk-emerald .bk-sub  { color: rgba(78,204,163,0.85); }
 
 .textbook-card {
   display: flex;
