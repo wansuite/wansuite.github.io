@@ -1,27 +1,28 @@
 :root {
-  --bg: #fbfaf6;
-  --bg-muted: #f3f1ea;
-  --text: #1c1917;
-  --text-muted: #57534e;
-  --text-faint: #a8a29e;
-  --border: #e7e5e0;
-  --accent: #1e3a5f;       /* deep navy */
-  --accent-soft: #3b5b86;
-  --accent-warm: #7a2e2e;  /* burgundy */
-  --accent-olive: #4a5d3a; /* sage/olive */
+  /* Stanford GSB palette */
+  --bg: #ffffff;
+  --bg-muted: #f4f4f4;
+  --text: #2e2d29;
+  --text-muted: #5f5d57;
+  --text-faint: #a3a299;
+  --border: #dad7cb;        /* warm Stanford gray */
+  --accent: #8c1515;        /* Cardinal Red */
+  --accent-soft: #b1040e;
+  --accent-warm: #b6862e;   /* Stanford gold */
+  --accent-olive: #4a5d3a;
 }
 
 html, body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  font-family: 'Source Sans 3', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, .serif {
-  font-family: 'Crimson Pro', 'EB Garamond', Georgia, serif;
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text);
