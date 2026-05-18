@@ -1,12 +1,22 @@
-// Hard-block mainland China (CN) visitors from xuhuwan.pages.dev.
-// Runs on every request via Cloudflare Pages Functions.
-//
-// Country codes that are NOT blocked:
-//   HK (Hong Kong), TW (Taiwan), MO (Macau)
-//
-// Visitors using non-CN VPN exits bypass this block (unavoidable).
+// Two pieces of edge logic that run on every Cloudflare Pages request:
+//   1. Hostname redirect: any traffic on xuhuwan.pages.dev → xuhuwan.audeac.com (301).
+//      Cloudflare's _redirects file can't do cross-hostname rules, so we do it here.
+//   2. Hard-block mainland China (CN) visitors with a 403.
+//      Country codes NOT blocked: HK (Hong Kong), TW (Taiwan), MO (Macau).
+//      Visitors using non-CN VPN exits bypass this block (unavoidable).
+
+const CANONICAL_HOST = 'xuhuwan.audeac.com';
 
 export async function onRequest(context) {
+  const url = new URL(context.request.url);
+
+  // 1. Hostname redirect — pages.dev → audeac.com
+  if (url.hostname !== CANONICAL_HOST && url.hostname.endsWith('.pages.dev')) {
+    url.hostname = CANONICAL_HOST;
+    return Response.redirect(url.toString(), 301);
+  }
+
+  // 2. CN block
   const country = context.request.cf?.country;
   if (country === 'CN') {
     return new Response(BLOCKED_HTML, {
