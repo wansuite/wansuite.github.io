@@ -8,8 +8,11 @@ https://xuhuwan.pages.dev/*  https://xuhuwan.audeac.com/:splat  301!
 # Default landing: / → /research (clean server-side 301, beats meta-refresh fallback)
 /                /research          301
 
-# Canonical paths: keep the legacy .html URLs working but treat /research, /teaching, /about as canonical
+# Teaching tab lives on the separate Academy site (eumathe.audeac.com).
+/teaching        https://eumathe.audeac.com/   301
+/teaching.html   https://eumathe.audeac.com/   301
+
+# Canonical paths: keep the legacy .html URLs working but treat /research and /about as canonical
 /index.html      /research          301
 /research.html   /research          301
-/teaching.html   /teaching          301
 /about.html      /about             301
