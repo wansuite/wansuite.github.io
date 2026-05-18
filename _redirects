@@ -5,14 +5,15 @@ https://xuhuwan.pages.dev/*  https://xuhuwan.audeac.com/:splat  301!
 # domain it doesn't serve, but we add this for documentation. The github.io site is disabled.
 # https://wansuite.github.io/*  https://xuhuwan.audeac.com/:splat  301
 
-# Default landing: / → /research (clean server-side 301, beats meta-refresh fallback)
-/                /research          301
+# Default landing: / → /cases (Cases is the new primary tab)
+/                /cases             301
 
 # Teaching tab lives on the separate Academy site (eumathe.audeac.com).
 /teaching        https://eumathe.audeac.com/   301
 /teaching.html   https://eumathe.audeac.com/   301
 
-# Canonical paths: keep the legacy .html URLs working but treat /research and /about as canonical
-/index.html      /research          301
+# Canonical paths: keep the legacy .html URLs working
+/index.html      /cases             301
+/cases.html      /cases             301
 /research.html   /research          301
 /about.html      /about             301
