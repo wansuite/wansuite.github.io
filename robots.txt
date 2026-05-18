@@ -21,4 +21,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://xuhuwan.pages.dev/sitemap.xml
+Sitemap: https://xuhuwan.audeac.com/sitemap.xml

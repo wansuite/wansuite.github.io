@@ -1,0 +1,12 @@
+# Permanently redirect the old Cloudflare Pages subdomain to the canonical custom domain
+https://xuhuwan.pages.dev/*  https://xuhuwan.audeac.com/:splat  301!
+
+# Old GitHub Pages URL (if anyone has it bookmarked) — Cloudflare can't redirect from a
+# domain it doesn't serve, but we add this for documentation. The github.io site is disabled.
+# https://wansuite.github.io/*  https://xuhuwan.audeac.com/:splat  301
+
+# Canonical paths: keep the legacy .html URLs working but treat /research, /teaching, /about as canonical
+/index.html      /research          301
+/research.html   /research          301
+/teaching.html   /teaching          301
+/about.html      /about             301
