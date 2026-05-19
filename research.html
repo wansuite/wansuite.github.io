@@ -12,6 +12,313 @@
 <link rel="stylesheet" href="assets/css/tailwind.css">
 <link rel="stylesheet" href="assets/css/style.css">
 
+<style>
+  /* Research-page-specific styles — modern showcase layout
+     (palette and typography from the shared design system) */
+
+  .hero-wrap {
+    position: relative;
+    padding: 96px 0 80px;
+    overflow: hidden;
+  }
+  .hero-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 88% 18%, rgba(140,21,21,0.06), transparent 45%),
+      radial-gradient(circle at 12% 88%, rgba(182,134,46,0.05), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(56px, 9vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin: 0 0 24px;
+    color: var(--text);
+  }
+  .hero-statement {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.45;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin: 0 0 32px;
+    max-width: 780px;
+  }
+  .hero-statement em {
+    font-style: normal;
+    color: var(--accent);
+    border-bottom: 2px solid rgba(140,21,21,0.18);
+    padding-bottom: 1px;
+  }
+  .hero-cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .hero-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px;
+    border-radius: 4px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .hero-btn-primary { background: var(--accent); color: #fff; }
+  .hero-btn-primary:hover { background: var(--accent-soft); color: #fff; transform: translateY(-1px); }
+  .hero-btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .hero-btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 720px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .hero-wrap { padding: 64px 0 56px; }
+  }
+  .hero-stat .num {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .hero-stat .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  /* Section eyebrow header — clean modern style */
+  .sec-head { margin-bottom: 32px; }
+  .sec-head .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .sec-head h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.6vw, 40px);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0;
+  }
+  .sec-head .lead {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  /* Featured paper — full-width showcase card */
+  .feature-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--accent-warm) 100%);
+  }
+  .feature-card .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .feature-card h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+  }
+  .feature-card h3 a { color: var(--text); text-decoration: none; transition: color 0.15s; }
+  .feature-card h3 a:hover { color: var(--accent); }
+  .feature-card .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+  .feature-card .meta a { color: var(--accent); }
+  @media (max-width: 760px) {
+    .feature-card { padding: 28px 22px; }
+  }
+
+  /* Working paper grid — clean cards with hover lift */
+  .wp-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 760px) {
+    .wp-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .wp-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 26px 26px 22px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .wp-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(140,21,21,0.08);
+  }
+  .wp-card .yr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .wp-card .yr .dot { color: var(--accent); margin: 0 6px; }
+  .wp-card h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--text);
+    margin: 0 0 12px;
+    letter-spacing: -0.005em;
+  }
+  .wp-card h3 a { color: inherit; text-decoration: none; }
+  .wp-card h3 a:hover { color: var(--accent); }
+  .wp-card p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .wp-card .links {
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .wp-card .links a { color: var(--accent); text-decoration: none; }
+  .wp-card .links a:hover { text-decoration: underline; }
+
+  /* Publication timeline — visual vertical list with year markers */
+  .pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .pub-list::before {
+    content: "";
+    position: absolute;
+    left: 64px;
+    top: 4px; bottom: 4px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--border) 0%, var(--border) 50%, transparent 100%);
+  }
+  .pub-list li {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 14px 0;
+    position: relative;
+  }
+  .pub-list li::before {
+    content: "";
+    position: absolute;
+    left: 60px;
+    top: 22px;
+    width: 9px; height: 9px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .pub-list .yr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.06em;
+  }
+  .pub-list .body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .pub-list .body strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 600px) {
+    .pub-list::before { left: 0; }
+    .pub-list li { grid-template-columns: 1fr; gap: 4px; padding-left: 22px; }
+    .pub-list li::before { left: -4px; top: 22px; }
+  }
+
+  /* Research areas — visual themed cards */
+  .areas-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 760px) { .areas-grid { grid-template-columns: repeat(2, 1fr); } }
+  .area {
+    padding: 22px 24px;
+    background: var(--bg-muted);
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    transition: background 0.15s, border-left-color 0.15s;
+  }
+  .area:hover { background: #efece2; border-left-color: var(--accent-warm); }
+  .area h4 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    margin: 0 0 6px;
+    color: var(--text);
+  }
+  .area p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+</style>
+
 <!-- Structured data for AI assistants and search engines (schema.org Person + ScholarlyArticle) -->
 <script type="application/ld+json">
 {
@@ -129,118 +436,184 @@
   </div>
 </nav>
 
-<main class="max-w-4xl mx-auto px-6 py-20 space-y-20">
+<!-- HERO -->
+<section class="hero-wrap">
+  <div class="max-w-5xl mx-auto px-6 hero-inner">
+    <div class="hero-eyebrow">Associate Professor · HKUST · Department of ISOM</div>
+    <h1 class="hero-name">Xuhu Wan</h1>
+    <p class="hero-statement">
+      Research at the intersection of <em>economic theory</em>, <em>quantitative finance</em>, and <em>data science</em> — dynamic contracting, information design, AI-driven game theory, and machine-learning approaches to asset pricing.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#featured" class="hero-btn hero-btn-primary">Latest paper →</a>
+      <a href="mailto:xuhu.wan@gmail.com" class="hero-btn hero-btn-ghost">Email me</a>
+    </div>
 
-  <!-- Working papers -->
-  <section>
-    <h2 class="serif text-3xl mb-2 pb-2 border-b border-subtle">Working Papers</h2>
-    <p class="text-sm text-faint italic mb-8">Drafts available on request. SSRN/arXiv links forthcoming.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">7</div><div class="lbl">Peer-reviewed papers</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="lbl">Active working papers</div></div>
+      <div class="hero-stat"><div class="num">20+</div><div class="lbl">Years in research</div></div>
+      <div class="hero-stat"><div class="num">5</div><div class="lbl">Research areas</div></div>
+    </div>
+  </div>
+</section>
 
-    <div class="space-y-10">
-      <article>
-        <h3 class="serif text-2xl mb-2">Dynamic Contracting with Random Effort Adjustment</h3>
-        <div class="text-sm text-faint font-mono">2026 · Working Paper · Theory · Single-authored</div>
-      </article>
+<main class="max-w-5xl mx-auto px-6 pt-8 pb-24 space-y-24">
 
-      <article id="effort-impatience">
-        <h3 class="serif text-2xl mb-2">
-          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6610679" class="link-underline" target="_blank" rel="noopener">Effort-Induced Impatience and Optimal Compensation Design</a>
-        </h3>
-        <div class="text-sm text-faint font-mono mb-4">
-          January 2024 · 42 pages · Single-authored · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6610679" class="text-accent" target="_blank" rel="noopener">SSRN</a>
+  <!-- FEATURED PAPER — showcase the highlight work -->
+  <section id="featured">
+    <div class="sec-head">
+      <div class="kicker">Featured · Latest</div>
+      <h2>Effort-Induced Impatience &amp; Optimal Compensation Design</h2>
+      <p class="lead">A continuous-time principal-agent model where the agent's impatience rises endogenously with effort. The optimal payment threshold turns out non-monotonic — backloaded at low risk, frontloaded above a critical level — with closed-form implementations via debt, credit lines, and inside equity.</p>
+    </div>
+
+    <article id="effort-impatience" class="feature-card">
+      <span class="tag">Working Paper · January 2024</span>
+      <h3>
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6610679" target="_blank" rel="noopener">Effort-Induced Impatience and Optimal Compensation Design</a>
+      </h3>
+      <div class="meta">42 pages · Single-authored · <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6610679" target="_blank" rel="noopener">SSRN 6610679 →</a></div>
+
+      <div class="grid md:grid-cols-5 gap-8 items-start">
+        <div class="md:col-span-3 text-muted leading-relaxed text-[15px]">
+          <p class="mb-4">This paper develops a continuous-time principal-agent model in which the agent's impatience rises endogenously with effort. We derive explicit value functions and characterize optimal contracts. A central finding is that the payment threshold is <strong class="text-text">non-monotonic</strong> in the agent's impatience level: when asset risk is low, the principal initially backloads payments to stretch incentives, but beyond a critical impatience level, the contract shifts toward frontloading.</p>
+          <p>Implementing the contract with debt, credit lines, and inside equity yields closed-form valuations, showing that equity value shifts from <strong class="text-text">concave to convex</strong> as asset risk increases. Temporary suspension efficiently realigns incentives without termination. Explicit conditions are given for renegotiation-proof contracts.</p>
         </div>
-        <div class="grid md:grid-cols-5 gap-6 items-start">
-          <p class="text-muted leading-relaxed md:col-span-3">
-            This paper develops a continuous-time principal-agent model in which the agent's impatience rises endogenously with effort. We derive explicit value functions and characterize optimal contracts. A central finding is that the payment threshold is non-monotonic in the agent's impatience level: when asset risk is low, the principal initially backloads payments to stretch incentives, but beyond a critical impatience level, the contract shifts toward frontloading, driven by two forces: stronger discounting of future payment and the rising cost of sustaining incentive under greater impatience. Implementing the contract with debt, credit lines, and inside equity yields closed-form valuations, showing that equity value shifts from concave to convex as asset risk increases. Temporary suspension efficiently realigns incentives without termination. Finally, we provide explicit conditions for renegotiation-proof contracts, revealing how effort-induced impatience reshapes incentive structures.
-          </p>
-          <figure class="diagram md:col-span-2">
-            <img src="/assets/img/effort-impatience-regions.png"
-                 alt="Diagram: regions of optimal contract behavior in the (R, L) plane, showing thresholds L = F_A(R), L = b(R, R Q_s^{-1}(A/rR)), and L = F_0(R) that separate Region II (Never shirking), Region III, Region IV, and the absorbing region D."
-                 class="w-full">
-            <figcaption class="text-xs text-faint mt-2 italic leading-relaxed">
-              Optimal-contract regions in the (R, L) plane. Boundaries L = F_A(R) and L = F_0(R) separate the absorbing region from Region II (never shirking) and from the suspension region; the curve L = b(R, R Q<sub>s</sub><sup>-1</sup>(A/rR)) further partitions the interior.
-            </figcaption>
-          </figure>
-        </div>
+        <figure class="diagram md:col-span-2">
+          <img src="/assets/img/effort-impatience-regions.png"
+               alt="Diagram: regions of optimal contract behavior in the (R, L) plane"
+               class="w-full">
+          <figcaption class="text-xs text-faint mt-2 italic leading-relaxed text-center">
+            Optimal-contract regions in the (R, L) plane.
+          </figcaption>
+        </figure>
+      </div>
+    </article>
+  </section>
+
+  <!-- WORKING PAPERS GRID -->
+  <section id="working-papers">
+    <div class="sec-head">
+      <div class="kicker">In Progress</div>
+      <h2>Working Papers</h2>
+      <p class="lead">Theoretical contributions currently in revision. Drafts available on request.</p>
+    </div>
+
+    <div class="wp-grid">
+      <article class="wp-card">
+        <div class="yr">2026 <span class="dot">·</span> Theory <span class="dot">·</span> Single-authored</div>
+        <h3>Dynamic Contracting with Random Effort Adjustment</h3>
+        <p>How does optimal compensation change when the agent's effort capacity itself fluctuates stochastically? A continuous-time framework with implications for executive pay and severance design.</p>
       </article>
 
-      <article>
-        <h3 class="serif text-2xl mb-2">Dynamic Monitoring and Information Design</h3>
-        <div class="text-sm text-faint font-mono mb-3">2025 · Working Paper · Theory</div>
-        <p class="text-muted leading-relaxed">
-          When the principal can design both the monitoring technology and the information disclosed to the agent, optimal contracts combine a state-dependent monitoring schedule with a strategically obfuscated signal. Bridges dynamic contracting and Bayesian persuasion: the optimal disclosure rule reduces required incentives by shaping the agent's beliefs about future enforcement.
-        </p>
+      <article class="wp-card">
+        <div class="yr">2025 <span class="dot">·</span> Theory</div>
+        <h3>Dynamic Monitoring and Information Design</h3>
+        <p>When the principal designs both monitoring intensity and information disclosed to the agent, optimal contracts combine state-dependent monitoring with strategically obfuscated signals — bridging dynamic contracting and Bayesian persuasion.</p>
       </article>
 
-      <article>
-        <h3 class="serif text-2xl mb-2">Continuous-Time Contracting under Infrequent Adjustment</h3>
-        <div class="text-sm text-faint font-mono">2026 · Working Paper · Theory</div>
+      <article class="wp-card">
+        <div class="yr">2026 <span class="dot">·</span> Theory</div>
+        <h3>Continuous-Time Contracting under Infrequent Adjustment</h3>
+        <p>Adjustment frictions in compensation contracts: how do incentives change when pay can only be revised at discrete intervals? Application to managerial contracts with periodic review.</p>
+      </article>
+
+      <article class="wp-card">
+        <div class="yr">In progress <span class="dot">·</span> Theory + ML</div>
+        <h3>AI-Driven Game Theory &amp; Algorithmic Equilibria</h3>
+        <p>Equilibrium concepts and welfare implications when players are reinforcement learners rather than expected-utility maximizers. Implications for market design and disclosure policy under algorithmic decision-making.</p>
       </article>
     </div>
   </section>
 
-  <div class="ornament">✦</div>
+  <!-- PUBLICATIONS — timeline -->
+  <section id="publications">
+    <div class="sec-head">
+      <div class="kicker">Peer-Reviewed</div>
+      <h2>Publications</h2>
+      <p class="lead">Selected publications in management science, finance, and mathematics journals.</p>
+    </div>
 
-  <!-- Publications -->
-  <section>
-    <h2 class="serif text-3xl mb-6 pb-2 border-b border-subtle">Publications</h2>
-    <ol class="space-y-6 list-none">
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2015</span>
-        <div class="leading-relaxed">
-          Sung, J., and <strong>Wan, X.</strong> A general equilibrium model of a multi-firm moral-hazard economy with financial markets. <em>Mathematical Finance</em>, 25(4), 827–868.
-        </div>
+    <ol class="pub-list">
+      <li>
+        <span class="yr">2015</span>
+        <div class="body">Sung, J., and <strong>Wan, X.</strong> A general equilibrium model of a multi-firm moral-hazard economy with financial markets. <em>Mathematical Finance</em>, 25(4), 827–868.</div>
       </li>
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2013</span>
-        <div class="leading-relaxed">
-          Cvitanić, J., and <strong>Wan, X.</strong> Dynamics of contract design with screening. <em>Management Science</em>, 59(5), 1229–1244.
-        </div>
+      <li>
+        <span class="yr">2013</span>
+        <div class="body">Cvitanić, J., and <strong>Wan, X.</strong> Dynamics of contract design with screening. <em>Management Science</em>, 59(5), 1229–1244.</div>
       </li>
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2012</span>
-        <div class="leading-relaxed">
-          Ju, N., and <strong>Wan, X.</strong> Optimal compensation and pay-performance sensitivity in a continuous-time principal-agent model. <em>Management Science</em>, 58(3), 641–657.
-        </div>
+      <li>
+        <span class="yr">2012</span>
+        <div class="body">Ju, N., and <strong>Wan, X.</strong> Optimal compensation and pay-performance sensitivity in a continuous-time principal-agent model. <em>Management Science</em>, 58(3), 641–657.</div>
       </li>
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2010</span>
-        <div class="leading-relaxed">
-          Goukasian, L., and <strong>Wan, X.</strong> Optimal incentive contracts under relative income concerns. <em>Mathematics and Financial Economics</em>, 4(1), 57–86.
-        </div>
+      <li>
+        <span class="yr">2010</span>
+        <div class="body">Goukasian, L., and <strong>Wan, X.</strong> Optimal incentive contracts under relative income concerns. <em>Mathematics and Financial Economics</em>, 4(1), 57–86.</div>
       </li>
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2009</span>
-        <div class="leading-relaxed">
-          Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Optimal compensation with hidden action and lump-sum payment in a continuous-time model. <em>Applied Mathematics and Optimization</em>, 59(1), 99–146.
-        </div>
+      <li>
+        <span class="yr">2009</span>
+        <div class="body">Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Optimal compensation with hidden action and lump-sum payment in a continuous-time model. <em>Applied Mathematics and Optimization</em>, 59(1), 99–146.</div>
       </li>
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2008</span>
-        <div class="leading-relaxed">
-          Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Principal-agent problems with exit options. <em>B.E. Journal of Theoretical Economics</em>, 8(1).
-        </div>
+      <li>
+        <span class="yr">2008</span>
+        <div class="body">Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Principal-agent problems with exit options. <em>B.E. Journal of Theoretical Economics</em>, 8(1).</div>
       </li>
-      <li class="flex gap-5">
-        <span class="font-mono text-sm text-faint shrink-0 w-14 pt-0.5">2006</span>
-        <div class="leading-relaxed">
-          Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Optimal contracts in continuous-time models. <em>Journal of Applied Mathematics and Stochastic Analysis</em>.
-        </div>
+      <li>
+        <span class="yr">2006</span>
+        <div class="body">Cvitanić, J., <strong>Wan, X.</strong>, and Zhang, J. Optimal contracts in continuous-time models. <em>Journal of Applied Mathematics and Stochastic Analysis</em>.</div>
       </li>
     </ol>
   </section>
 
-  <div class="ornament">✦</div>
+  <!-- RESEARCH AREAS -->
+  <section id="areas">
+    <div class="sec-head">
+      <div class="kicker">Research Themes</div>
+      <h2>Areas</h2>
+    </div>
 
-  <!-- External profiles -->
-  <section>
-    <h2 class="serif text-3xl mb-6 pb-2 border-b border-subtle">External Profiles</h2>
-    <ul class="space-y-2 text-base font-mono">
-      <li>→ <a href="https://orcid.org/0000-0003-3558-1151" class="link-underline" target="_blank" rel="noopener">ORCID · 0000-0003-3558-1151</a></li>
-      <li>→ <a href="https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xuhu-wan-imwan" class="link-underline" target="_blank" rel="noopener">HKUST Faculty Profile</a></li>
-      <li>→ <a href="https://researchportal.hkust.edu.hk/en/persons/xuhu-wan" class="link-underline" target="_blank" rel="noopener">HKUST Research Portal</a></li>
-      <li>→ <a href="https://www.researchgate.net/profile/Xuhu-Wan" class="link-underline" target="_blank" rel="noopener">ResearchGate</a></li>
-    </ul>
+    <div class="areas-grid">
+      <div class="area">
+        <h4>Dynamic Contracting</h4>
+        <p>Continuous-time principal-agent problems, optimal compensation, renegotiation-proof contracts, and incentive design under stochastic frictions.</p>
+      </div>
+      <div class="area">
+        <h4>Information Design</h4>
+        <p>Bayesian persuasion, dynamic disclosure, and optimal signaling in strategic environments — bridging theory with empirical implications.</p>
+      </div>
+      <div class="area">
+        <h4>ML Asset Pricing</h4>
+        <p>Machine-learning approaches to cross-sectional return prediction, stochastic discount factor estimation, and equity premium forecasting.</p>
+      </div>
+      <div class="area">
+        <h4>AI-Driven Game Theory</h4>
+        <p>Equilibrium analysis when decision-makers are reinforcement learners rather than rational optimizers — implications for market and mechanism design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTERNAL PROFILES + CONTACT -->
+  <section id="profiles">
+    <div class="sec-head">
+      <div class="kicker">Profiles &amp; Contact</div>
+      <h2>Find me elsewhere</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <ul class="space-y-3 text-base font-mono text-sm">
+        <li>→ <a href="https://orcid.org/0000-0003-3558-1151" class="link-underline" target="_blank" rel="noopener">ORCID · 0000-0003-3558-1151</a></li>
+        <li>→ <a href="https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xuhu-wan-imwan" class="link-underline" target="_blank" rel="noopener">HKUST Faculty Profile</a></li>
+        <li>→ <a href="https://researchportal.hkust.edu.hk/en/persons/xuhu-wan" class="link-underline" target="_blank" rel="noopener">HKUST Research Portal</a></li>
+        <li>→ <a href="https://www.researchgate.net/profile/Xuhu-Wan" class="link-underline" target="_blank" rel="noopener">ResearchGate</a></li>
+        <li>→ <a href="https://eumathe.audeac.com/" class="link-underline" target="_blank" rel="noopener">Eumathe Academy · teaching site</a></li>
+      </ul>
+      <div class="text-muted text-[15px] leading-relaxed">
+        <p class="mb-3">For collaboration, advising, or referee requests, the fastest path is email.</p>
+        <p><a href="mailto:xuhu.wan@gmail.com" class="link-underline">xuhu.wan@gmail.com</a></p>
+      </div>
+    </div>
   </section>
 
 </main>
