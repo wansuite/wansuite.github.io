@@ -8,9 +8,10 @@ https://xuhuwan.pages.dev/*  https://xuhuwan.audeac.com/:splat  301!
 # Default landing: / → /research
 /                /research          301
 
-# Cases page was retired — anyone with the old URL goes home.
-/cases           /research          301
-/cases.html      /research          301
+# Cases page was retired — anyone with the old URL goes to Solutions.
+/cases           /solutions         301
+/cases.html      /solutions         301
+/solutions.html  /solutions         301
 
 # Teaching content lives on the separate Academy site (eumathe.audeac.com).
 /teaching        https://eumathe.audeac.com/   301

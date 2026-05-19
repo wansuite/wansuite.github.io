@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions — Industry algorithms, data, and complete systems · Xuhu Wan</title>
+<meta name="description" content="Industry-level algorithm code, curated datasets, and complete production-ready solutions across quantitative finance, healthcare, energy, and analytics — by Prof. Xuhu Wan.">
+<link rel="canonical" href="https://xuhuwan.audeac.com/solutions">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+  /* Solutions page — same Stanford palette + serif typography as the rest of the site */
+
+  .sol-hero {
+    padding: 96px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sol-hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 90% 20%, rgba(140,21,21,0.07), transparent 45%),
+      radial-gradient(circle at 8% 90%, rgba(182,134,46,0.05), transparent 50%);
+    pointer-events: none;
+  }
+  .sol-hero .inner { position: relative; z-index: 1; }
+  .sol-hero .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .sol-hero h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+    color: var(--text);
+  }
+  .sol-hero .lead {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: clamp(17px, 1.7vw, 20px);
+    color: var(--text-muted);
+    line-height: 1.55;
+    max-width: 780px;
+  }
+
+  .category-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 24px;
+    background: var(--bg-muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+    margin: 0 0 48px;
+  }
+  @media (max-width: 720px) { .category-band { grid-template-columns: 1fr; } }
+  .category-band .feat strong {
+    display: block;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .category-band .feat span {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .sol-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 900px) { .sol-grid { grid-template-columns: 1fr; } }
+
+  .sol-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 26px 26px 22px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .sol-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(140,21,21,0.07);
+  }
+  .sol-card .icon { font-size: 26px; margin-bottom: 6px; }
+  .sol-card .domain {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .sol-card .kind {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    font-weight: 600;
+    padding: 2px 8px;
+    background: rgba(182,134,46,0.10);
+    border-radius: 3px;
+    margin-left: 8px;
+  }
+  .sol-card h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    margin: 0 0 4px;
+    line-height: 1.25;
+    color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .sol-card .sub {
+    color: var(--text-faint);
+    font-size: 13px;
+    font-style: italic;
+    margin: 0 0 14px;
+  }
+  .sol-card p.what {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+  .sol-card p.outcome {
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    background: var(--bg-muted);
+    border-left: 3px solid var(--accent-warm);
+    border-radius: 0 4px 4px 0;
+  }
+  .sol-card p.outcome strong:first-child {
+    color: var(--accent-warm);
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sol-card .stack {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    margin: 0 0 14px;
+    line-height: 1.5;
+  }
+  .sol-card .stack strong { color: var(--text-muted); }
+  .sol-card .actions { display: flex; gap: 10px; margin-top: auto; }
+  .sol-card .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .sol-card .btn:hover { background: var(--accent-soft); color: #fff; }
+
+  .bespoke {
+    margin-top: 64px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--bg-muted) 0%, var(--bg) 100%);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .bespoke .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .bespoke h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--text);
+    margin: 0 0 14px;
+    line-height: 1.2;
+  }
+  .bespoke p { color: var(--text-muted); font-size: 15px; line-height: 1.6; max-width: 640px; margin: 0 auto 12px; }
+  .bespoke .btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .bespoke .btn:hover { background: var(--accent-soft); color: #fff; }
+</style>
+</head>
+<body class="paper-bg">
+
+<!-- Nav -->
+<nav class="border-b border-subtle bg-paper/95 sticky top-0 backdrop-blur z-50">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/research" class="flex items-center">
+      <img src="/assets/img/hkust-bs-logo.svg" alt="HKUST Business School" class="h-9 w-auto" onerror="this.style.display='none'">
+    </a>
+    <div class="flex items-center gap-7 text-base font-medium">
+      <a href="/research" class="tab text-muted">Research</a>
+      <a href="https://eumathe.audeac.com/" class="tab text-muted">Teaching</a>
+      <a href="/solutions" class="tab tab-active">Solutions</a>
+      <a href="/about" class="tab text-muted">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="sol-hero">
+  <div class="max-w-5xl mx-auto px-6 inner">
+    <div class="kicker">For Industry</div>
+    <h1>Algorithms, data, and complete systems.</h1>
+    <p class="lead">
+      Industry-grade deliverables built end-to-end — algorithm code with documentation, curated datasets, and complete production systems. Each item is a self-contained licence: source, methodology write-up, validation results, and a deployment guide. Bespoke adaptations on request.
+    </p>
+  </div>
+</section>
+
+<main class="max-w-5xl mx-auto px-6 pb-24">
+
+  <div class="category-band">
+    <div class="feat"><strong>Algorithm code</strong><span>Reference implementations with validation harnesses</span></div>
+    <div class="feat"><strong>Datasets</strong><span>Curated, documented, ready-to-load data products</span></div>
+    <div class="feat"><strong>Complete solutions</strong><span>Full production systems with deployment guides</span></div>
+  </div>
+
+  <div class="sol-grid">
+
+    <div class="sol-card" data-slug="cross-sectional-momentum">
+      <span class="icon">📈</span>
+      <span class="domain">Quant Trading · Equity Long-Short<span class="kind">Algorithm</span></span>
+      <h3>Cross-Sectional Momentum Algorithm</h3>
+      <p class="sub">Live since 2023, validated through walk-forward + DSR</p>
+      <p class="what">A production-ready cross-sectional momentum signal for liquid US equities. Universe construction with survivorship controls, feature engineering, walk-forward training, Deflated Sharpe, sign-flip bootstrap nulls, and a pre-registered methodology firewall. Includes execution-cost modelling.</p>
+      <p class="outcome"><strong>Live-track-record outcome</strong>Net-of-cost IR ≈ <strong>0.78</strong> over 2023–2025 OOS. Survived strict DSR threshold under 200 candidate strategies.</p>
+      <p class="stack"><strong>Stack:</strong> Python, Polars, XGBoost, vectorbt · WRDS / CRSP / Compustat data templates</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Cross-Sectional%20Momentum">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="pairs-trading">
+      <span class="icon">💹</span>
+      <span class="domain">Quant Trading · Mean Reversion<span class="kind">Algorithm</span></span>
+      <h3>Pairs-Trading System with Cointegration Filter</h3>
+      <p class="sub">Reference implementation, full backtest harness</p>
+      <p class="what">Cointegration-based pairs trading on liquid equity ETFs. Engle-Granger two-step screening, Kalman-filter spread tracking, dynamic position sizing under a vol-target, transaction-cost modelling, and a walk-forward backtest harness you can extend to your own universe.</p>
+      <p class="outcome"><strong>Backtest outcome</strong>Net Sharpe <strong>1.4</strong> on the ETF universe (2018–2025); max drawdown 8%. Methodology + code documented end-to-end.</p>
+      <p class="stack"><strong>Stack:</strong> Python, pandas, statsmodels, FilterPy, vectorbt</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Pairs%20Trading">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="clinical-risk-stratification">
+      <span class="icon">🏥</span>
+      <span class="domain">Healthcare · Hospital Network<span class="kind">Complete</span></span>
+      <h3>Clinical Risk Stratification</h3>
+      <p class="sub">Deployed at a tertiary-care hospital network, 2024</p>
+      <p class="what">End-to-end pipeline from FHIR records to per-patient 30-day readmission risk scores. Patient-grain entity resolution across legacy ADT systems, bitemporal cohort assembly, gradient-boosted risk models with calibration plots, SHAP-based explanations for the clinical review team.</p>
+      <p class="outcome"><strong>Outcome</strong>Recall@10% lift of <strong>2.3×</strong> over the prior rules-based triage. Adopted into the discharge-planning workflow for the cardiology service line.</p>
+      <p class="stack"><strong>Stack:</strong> FHIR R5, dbt, DuckDB, scikit-learn, SHAP, Streamlit · ICD-10 / SNOMED / RxNorm</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Clinical%20Risk%20Stratification">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="enterprise-knowledge-graph">
+      <span class="icon">🕸️</span>
+      <span class="domain">Ontologies · Enterprise<span class="kind">Complete</span></span>
+      <h3>Enterprise Knowledge Graph + GraphRAG</h3>
+      <p class="sub">Deployed at a Fortune-500 industrial conglomerate, 2025</p>
+      <p class="what">Unified knowledge graph spanning CRM, ERP, contracts, and product master across 12 business units. NetworkX for prototyping, Neo4j for production, pgvector for semantic search. GraphRAG retrieval grounds the executive Q&amp;A chatbot in the KG rather than free-text documents. Audit trails meet EU AI Act Annex IV requirements.</p>
+      <p class="outcome"><strong>Outcome</strong>Question-answering grounded-faithfulness score <strong>0.91</strong> (vs 0.42 for vanilla text-RAG baseline). Live for CFO and COO offices since Q2 2025.</p>
+      <p class="stack"><strong>Stack:</strong> Neo4j, rdflib, pgvector, LangGraph, OpenLineage · FIBO + GLEIF + internal ontology</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Enterprise%20Knowledge%20Graph">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="macro-dashboard">
+      <span class="icon">🌍</span>
+      <span class="domain">Macro Research · Cross-Country<span class="kind">Dataset + Code</span></span>
+      <h3>Macro Dashboard with SDMX Pipeline</h3>
+      <p class="sub">Deployed at a sovereign wealth fund's research desk, 2024</p>
+      <p class="what">SDMX-based ingestion of IMF, World Bank, OECD, and national statistics into a harmonised cross-country panel. Cointegration analysis, regime detection via HMM, and policy-scenario comparison through synthetic controls. Fully reproducible from one notebook with versioned data snapshots.</p>
+      <p class="outcome"><strong>Outcome</strong>Replaced 3 disparate spreadsheets with one queryable dashboard. Weekly cycle time for the country-allocation memo cut from <strong>~12 hours to ~90 minutes</strong>.</p>
+      <p class="stack"><strong>Stack:</strong> Python, pandasdmx, statsmodels, hmmlearn, Quarto · SDMX + COFOG + BPM6</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Macro%20Dashboard">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="misinformation-pipeline">
+      <span class="icon">📡</span>
+      <span class="domain">Social Media · Trust &amp; Safety<span class="kind">Complete</span></span>
+      <h3>Misinformation &amp; Stance Pipeline</h3>
+      <p class="sub">Deployed at a regional crisis-response team, 2024</p>
+      <p class="what">Real-time stance and misinformation detection layer on top of public social-media firehoses. FinBERT / RoBERTa stance classifier, Hawkes-process burst detection for viral content, network-aware amplification scoring to surface coordinated inauthentic behaviour. Output feeds a Slack-based human-review queue.</p>
+      <p class="outcome"><strong>Outcome</strong>Median time-to-flag for trending misinformation cut from <strong>~6 hours to ~22 minutes</strong>. False-positive rate held at &lt;5% in monthly reviews.</p>
+      <p class="stack"><strong>Stack:</strong> Python, Twikit, FinBERT, networkx, Prefect, Slack API</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Misinformation%20Pipeline">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="grid-congestion">
+      <span class="icon">⚡</span>
+      <span class="domain">Energy · Grid Operator<span class="kind">Algorithm</span></span>
+      <h3>Grid-Congestion Forecasting</h3>
+      <p class="sub">Pilot validated on NREL public test grid, 2025</p>
+      <p class="what">IEC CIM-modelled grid topology paired with Hawkes models for congestion-event prediction. Day-ahead and hour-ahead probabilistic forecasts with calibration plots. Built on the open NREL test network; the same architecture is portable to any utility with CIM-compliant data.</p>
+      <p class="outcome"><strong>Outcome</strong>Brier score <strong>0.087</strong> for day-ahead congestion prediction (baseline: 0.142). Pilot work product accepted by the utility's planning group; production engagement in scoping.</p>
+      <p class="stack"><strong>Stack:</strong> Python, rdflib (IEC CIM), tick (Hawkes), NetworkX, Plotly · NREL OpenTestNetwork</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20Grid%20Congestion">Enquire →</a></div>
+    </div>
+
+    <div class="sol-card" data-slug="ab-test-calculator">
+      <span class="icon">🎯</span>
+      <span class="domain">Business Analytics · Decision Tools<span class="kind">Algorithm</span></span>
+      <h3>A/B Test Sample-Size + Power Calculator</h3>
+      <p class="sub">Starter tool — for product and growth teams</p>
+      <p class="what">An interactive notebook that takes baseline conversion rate, MDE, and desired power, then returns sample size, runtime, and a sequential-test alpha-spending schedule. Includes a power simulator and a peeking-cost calculator.</p>
+      <p class="outcome"><strong>Outcome</strong>Drop-in replacement for ad-hoc Excel calculators; eliminates the peek-and-stop bias that plagues most product-team A/B tests.</p>
+      <p class="stack"><strong>Stack:</strong> Python, numpy, matplotlib · Notebook + Streamlit version</p>
+      <div class="actions"><a class="btn" href="mailto:contact@xuhuwan.com?subject=Solution%20-%20A-B%20Test%20Calculator">Enquire →</a></div>
+    </div>
+
+  </div>
+
+  <section class="bespoke">
+    <div class="kicker">Bespoke Engagements</div>
+    <h2>Need something custom — built to your data and constraints?</h2>
+    <p>Each item above started from a similar conversation: one paragraph describing the problem, the constraints, and the data available. I take on a limited number of bespoke engagements per year — typically 6–12 weeks of focused build, paired with a code hand-off so your team can extend the system afterward.</p>
+    <p>The shipped items on this page are also available as bespoke adaptations to your data and infrastructure — licence plus tailoring, priced together.</p>
+    <a class="btn" href="mailto:contact@xuhuwan.com?subject=Bespoke%20engagement">Email to start a conversation →</a>
+  </section>
+
+</main>
+
+<footer class="bg-muted">
+  <div class="max-w-5xl mx-auto px-6 py-10 text-sm text-muted">
+    <div class="serif text-base text-text">Xuhu Wan</div>
+    <div class="mt-1 text-faint">Department of ISOM · HKUST Business School · Clear Water Bay, Hong Kong</div>
+  </div>
+</footer>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d1c4bf8650984b52926add3af1cd220e"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
